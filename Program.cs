@@ -51,18 +51,29 @@ int SommaElementiArray(int[] array)
 
 // --- PROGRAMMA --- //
 
-int[] arrayDiNumeri = { 2, 6, 7, 5, 3, 9 };
-StampaArray(arrayDiNumeri);
+//int[] arrayDiNumeri = { 2, 6, 7, 5, 3, 9 }; // esercizio base
+//StampaArray(arrayDiNumeri); // esercizio base
 
-int numeroTest = 3;
-int numeroAlQuadrato = Quadrato(numeroTest);
-Console.WriteLine($"Prova, il numero scelto al quadrato é : {numeroAlQuadrato}");
+string richiestaUtente = Console.ReadLine();
+int conversioneInteroRichiestaUtente = int.Parse(richiestaUtente);
+int[] arrayVuoto = new int[conversioneInteroRichiestaUtente];
 
-int[] arrayElevatoAlQuadrato = ElevaArrayAlQuadrato(arrayDiNumeri);
+for (int i = 0; i < conversioneInteroRichiestaUtente; i++)
+{
+    Console.Write("Inserisci un numero intero a piacere: ");
+    string elementiSceltiDallUtente = Console.ReadLine();
+    int conversioneElementiSceltiDallUtente = int.Parse(elementiSceltiDallUtente);
+    arrayVuoto[i] = conversioneElementiSceltiDallUtente;
+}
+//int numeroTest = 3;
+//int numeroAlQuadrato = Quadrato(numeroTest);
+//Console.WriteLine($"Prova, il numero scelto al quadrato é : {numeroAlQuadrato}");
+
+int[] arrayElevatoAlQuadrato = ElevaArrayAlQuadrato(arrayVuoto);
 StampaArray(arrayElevatoAlQuadrato);
-StampaArray(arrayDiNumeri);
+StampaArray(arrayVuoto);
 
-int sommaElementiDelArray = SommaElementiArray(arrayDiNumeri);
+int sommaElementiDelArray = SommaElementiArray(arrayVuoto);
 Console.WriteLine($"La somma degli elementi del'array é : {sommaElementiDelArray}");
 
 int sommaElementiDelArrayAlQuadrato = SommaElementiArray(arrayElevatoAlQuadrato);
